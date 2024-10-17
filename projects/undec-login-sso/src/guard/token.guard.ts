@@ -3,7 +3,7 @@ import * as jwt_decode from 'jwt-decode';
 
 let redirectCount = 0;
 
-export const tokenGuard: CanActivateFn = (route, state) => {
+export const tokenGuard: CanActivateFn = (route) => {
   const localStorageToken = localStorage.getItem('undec-token');
   if (localStorageToken) {
     return true;
