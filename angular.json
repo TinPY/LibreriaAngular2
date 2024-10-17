@@ -3,5 +3,53 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "undec-login-sso": {
+      "projectType": "library",
+      "root": "projects/undec-login-sso",
+      "sourceRoot": "projects/undec-login-sso/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/undec-login-sso/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/undec-login-sso/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/undec-login-sso/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/undec-login-sso/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/undec-login-sso/**/*.ts",
+              "projects/undec-login-sso/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
