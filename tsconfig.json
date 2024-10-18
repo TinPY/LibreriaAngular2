@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -11,15 +11,16 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "ESNext",
     "useDefineForClassFields": false,
     "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
     "paths": {
       "undec-login-sso": [
         "./dist/undec-login-sso"
@@ -28,7 +29,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "exclude": ["node_modules", "dist"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
