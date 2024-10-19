@@ -24,13 +24,13 @@
     "paths": {
       "undec-login-sso": [
         "./dist/undec-login-sso"
-      ]
+      ],
+      "exclude": ["./node_modules", "./dist"]
     },
     "lib": [
       "ES2022",
       "dom"
-    ],
-    "exclude": ["node_modules", "dist"]
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
