@@ -6,7 +6,14 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "types": []
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
   },
   "exclude": [
     "**/*.spec.ts"
