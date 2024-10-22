@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -25,7 +26,10 @@
       "undec-login-sso": [
         "./dist/undec-login-sso"
       ],
-      "exclude": ["./node_modules", "./dist"]
+      "undec-login-sso/*": [
+        "dist/undec-login-sso/*"
+      ],
+      "exclude": ["./node_modules"]
     },
     "lib": [
       "ES2022",
