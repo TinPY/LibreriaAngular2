@@ -27,7 +27,7 @@
         "./dist/undec-login-sso"
       ],
       "undec-login-sso/*": [
-        "dist/undec-login-sso/*"
+        "./dist/undec-login-sso/*"
       ],
       "exclude": ["./node_modules"]
     },
