@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ",
     "build-lib": "ng build undec-login-sso",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -20,11 +20,10 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
-    "jwt-decode": "^4.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "undec-login-sso": "file:dist/undec-login-sso",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.14.2",
+    "jwt-decode": "^4.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.10",
