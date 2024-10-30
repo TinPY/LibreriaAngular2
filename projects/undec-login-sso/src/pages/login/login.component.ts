@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -11,6 +11,9 @@ import {CommonModule} from '@angular/common';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit{
+
+  @Input() aplicacion = '';
+
   constructor(private router: Router) {
   }
 
