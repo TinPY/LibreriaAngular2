@@ -1,9 +1,10 @@
 import * as i0 from '@angular/core';
-import { Injectable, Component } from '@angular/core';
+import { Injectable, Component, Input } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import { catchError } from 'rxjs';
 import * as i1 from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import * as i2 from '@angular/common';
 import { CommonModule } from '@angular/common';
 
 class UndecLoginSsoService {
@@ -88,6 +89,9 @@ const responseInterceptorFunctional = (req, next) => {
 class LoginComponent {
     constructor(router) {
         this.router = router;
+        this.aplicacion = '';
+        this.color_tema = '';
+        this.mostrar_logo = false;
     }
     ngOnInit() {
         if (localStorage.getItem('undec-token')) {
@@ -100,12 +104,18 @@ class LoginComponent {
         window.location.assign(authUrl);
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: LoginComponent, deps: [{ token: i1.Router }], target: i0.ɵɵFactoryTarget.Component }); }
-    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.3.12", type: LoginComponent, isStandalone: true, selector: "lib-login", ngImport: i0, template: "<div class=\"container-fluid bg-dark h-100\">\r\n    <div class=\"row align-items-center h-100\">\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n        <div class=\"col-12 col-md-6 col-lg-4\">\r\n            <div class=\"card mb-5\">\r\n                <div class=\"card-header text-light text-center h4\">\r\n                    <!--<img src=\"assets/img/undec.png\" alt=\"undec\">-->\r\n                    <h4 class=\"card-title text-primary\">Aplicacion UNdeC</h4>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"row pt-2\">\r\n                        <div class=\"col-12\">\r\n                            <button (click)=\"login()\" class=\"btn btn-primary w-100 mb-2\" type=\"submit\">\r\n                                <i class=\"fas fa-sign-in-alt\"></i> Ingresar\r\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\" hidden=\"true\"></span>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n    </div>\r\n</div>\r\n\r\n", styles: [""], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "ngmodule", type: ReactiveFormsModule }] }); }
+    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.3.12", type: LoginComponent, isStandalone: true, selector: "lib-login", inputs: { aplicacion: "aplicacion", color_tema: "color_tema", mostrar_logo: "mostrar_logo" }, ngImport: i0, template: "<div class=\"container-fluid bg-dark h-100\">\r\n    <div class=\"row align-items-center h-100\">\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n        <div class=\"col-12 col-md-6 col-lg-4\">\r\n            <div class=\"card mb-5\">\r\n                <div class=\"card-header text-light text-center h4\">\r\n                    <img src=\"@node_modules/undec-login-sso/assets/img/undec.png\" alt=\"undec\" *ngIf=\"mostrar_logo\">\r\n                    <h4 class=\"card-title text-primary\">Aplicacion UNdeC - {{aplicacion}}</h4>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"row pt-2\">\r\n                        <div class=\"col-12\">\r\n                            <button (click)=\"login()\" class=\"btn btn-primary w-100 mb-2\" type=\"submit\">\r\n                                <i class=\"fas fa-sign-in-alt\"></i> Ingresar\r\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\" hidden=\"true\"></span>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n    </div>\r\n</div>\r\n\r\n", styles: [""], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "directive", type: i2.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { kind: "ngmodule", type: ReactiveFormsModule }] }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: LoginComponent, decorators: [{
             type: Component,
-            args: [{ selector: 'lib-login', standalone: true, imports: [CommonModule, ReactiveFormsModule], template: "<div class=\"container-fluid bg-dark h-100\">\r\n    <div class=\"row align-items-center h-100\">\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n        <div class=\"col-12 col-md-6 col-lg-4\">\r\n            <div class=\"card mb-5\">\r\n                <div class=\"card-header text-light text-center h4\">\r\n                    <!--<img src=\"assets/img/undec.png\" alt=\"undec\">-->\r\n                    <h4 class=\"card-title text-primary\">Aplicacion UNdeC</h4>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"row pt-2\">\r\n                        <div class=\"col-12\">\r\n                            <button (click)=\"login()\" class=\"btn btn-primary w-100 mb-2\" type=\"submit\">\r\n                                <i class=\"fas fa-sign-in-alt\"></i> Ingresar\r\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\" hidden=\"true\"></span>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n    </div>\r\n</div>\r\n\r\n" }]
-        }], ctorParameters: () => [{ type: i1.Router }] });
+            args: [{ selector: 'lib-login', standalone: true, imports: [CommonModule, ReactiveFormsModule], template: "<div class=\"container-fluid bg-dark h-100\">\r\n    <div class=\"row align-items-center h-100\">\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n        <div class=\"col-12 col-md-6 col-lg-4\">\r\n            <div class=\"card mb-5\">\r\n                <div class=\"card-header text-light text-center h4\">\r\n                    <img src=\"@node_modules/undec-login-sso/assets/img/undec.png\" alt=\"undec\" *ngIf=\"mostrar_logo\">\r\n                    <h4 class=\"card-title text-primary\">Aplicacion UNdeC - {{aplicacion}}</h4>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"row pt-2\">\r\n                        <div class=\"col-12\">\r\n                            <button (click)=\"login()\" class=\"btn btn-primary w-100 mb-2\" type=\"submit\">\r\n                                <i class=\"fas fa-sign-in-alt\"></i> Ingresar\r\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\" hidden=\"true\"></span>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3 col-lg-4\"></div>\r\n    </div>\r\n</div>\r\n\r\n" }]
+        }], ctorParameters: () => [{ type: i1.Router }], propDecorators: { aplicacion: [{
+                type: Input
+            }], color_tema: [{
+                type: Input
+            }], mostrar_logo: [{
+                type: Input
+            }] } });
 
 /*
  * Public API Surface of undec-login-sso
