@@ -13,6 +13,8 @@ import {CommonModule} from '@angular/common';
 export class LoginComponent implements OnInit{
 
   @Input() aplicacion = '';
+  @Input() color_tema = '';
+  @Input() mostrar_logo: boolean = false;
 
   constructor(private router: Router) {
   }

@@ -1,6 +1,6 @@
 {
   "name": "undec-login-sso",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "main": "fesm2022/undec-login-sso.mjs",
   "module": "fesm2022/undec-login-sso.mjs",
   "typings": "undec-login-sso.d.ts",
