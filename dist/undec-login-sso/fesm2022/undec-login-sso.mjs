@@ -51,7 +51,7 @@ const tokenGuard = (route) => {
     }
     if (redirectCount === 0) {
         const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + "#/home")));
-        const authUrl = "http://localhost:8899/auth/login?state=" + locationBase64;
+        const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64;
         redirectCount = 1;
         window.location.assign(authUrl);
     }
@@ -62,7 +62,7 @@ const authInterceptorFunctional = (req, next) => {
     const authToken = localStorage.getItem('undec-token');
     if (!authToken) {
         const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.href)));
-        const authUrl = "http://localhost:8899/auth/login?state=" + locationBase64;
+        const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64;
         window.location.assign(authUrl);
     }
     // Clone the request and add the authorization header
@@ -79,7 +79,7 @@ const responseInterceptorFunctional = (req, next) => {
         .pipe(catchError(error => {
         if (error.status === 403 || error.status === 401) {
             localStorage.clear();
-            const authUrl = "http://localhost:8899/auth/logout?logout_uri=" + window.location.origin + "/logout";
+            const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/logout?logout_uri=" + window.location.origin + "/logout";
             window.location.assign(authUrl);
         }
         throw error;
@@ -100,7 +100,7 @@ class LoginComponent {
     }
     login() {
         const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + "#/home")));
-        const authUrl = "http://localhost:8899/auth/login?state=" + locationBase64;
+        const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64;
         window.location.assign(authUrl);
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.12", ngImport: i0, type: LoginComponent, deps: [{ token: i1.Router }], target: i0.ɵɵFactoryTarget.Component }); }

@@ -19,7 +19,7 @@ export const tokenGuard: CanActivateFn = (route) => {
 
   if (redirectCount === 0) {
     const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + "#/home")))
-    const authUrl = "http://localhost:8899/auth/login?state=" + locationBase64
+    const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64
     redirectCount = 1;
     window.location.assign(authUrl);
   }
