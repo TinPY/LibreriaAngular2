@@ -50,7 +50,7 @@ const tokenGuard = (route) => {
         return true;
     }
     if (redirectCount === 0) {
-        const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + "#/home")));
+        const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + window.location.pathname + "#/home")));
         const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64;
         redirectCount = 1;
         window.location.assign(authUrl);
@@ -61,7 +61,7 @@ const tokenGuard = (route) => {
 const authInterceptorFunctional = (req, next) => {
     const authToken = localStorage.getItem('undec-token');
     if (!authToken) {
-        const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.href)));
+        const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + window.location.pathname)));
         const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64;
         window.location.assign(authUrl);
     }
@@ -79,7 +79,7 @@ const responseInterceptorFunctional = (req, next) => {
         .pipe(catchError(error => {
         if (error.status === 403 || error.status === 401) {
             localStorage.clear();
-            const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/logout?logout_uri=" + window.location.origin + "/logout";
+            const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/logout?logout_uri=" + window.location.origin + window.location.pathname + "logout";
             window.location.assign(authUrl);
         }
         throw error;
@@ -99,7 +99,7 @@ class LoginComponent {
         }
     }
     login() {
-        const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + "#/home")));
+        const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + window.location.pathname + "#/home")));
         const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64;
         window.location.assign(authUrl);
     }

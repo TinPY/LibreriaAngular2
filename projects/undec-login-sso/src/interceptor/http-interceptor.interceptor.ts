@@ -5,7 +5,7 @@ export const authInterceptorFunctional: HttpInterceptorFn = (req, next) => {
   const authToken = localStorage.getItem('undec-token');
 
   if (!authToken) {
-    const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.href)))
+    const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + window.location.pathname)))
     const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64
     window.location.assign(authUrl);
   }
@@ -27,7 +27,7 @@ export const responseInterceptorFunctional: HttpInterceptorFn = (req, next) => {
           catchError(error => {
             if (error.status === 403 || error.status === 401) {
               localStorage.clear();
-              const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/logout?logout_uri=" + window.location.origin + "/logout"
+              const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/logout?logout_uri=" + window.location.origin + window.location.pathname + "logout"
               window.location.assign(authUrl);
             }
             throw error;
