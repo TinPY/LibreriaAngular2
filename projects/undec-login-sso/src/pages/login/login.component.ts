@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
 
   login(): void {
     const locationBase64 = window.btoa(unescape(encodeURIComponent(window.location.origin + window.location.pathname + "#/home")))
-    const authUrl = "https://vm01undec.riu.edu.ar:8443/cancerbero/auth/login?state=" + locationBase64
+    const authUrl = "https://vm01undec.riu.edu.ar:8899/auth/login?state=" + locationBase64
     window.location.assign(authUrl);
   }
 }
